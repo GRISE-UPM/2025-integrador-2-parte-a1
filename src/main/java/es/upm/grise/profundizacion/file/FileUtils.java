@@ -1,10 +1,15 @@
 package es.upm.grise.profundizacion.file;
 
+import java.util.zip.CRC32;
+
 public class FileUtils {
-	
 	long calculateCRC32(byte[] bytes) {
-		
-		return 0L;
+		if(bytes.length == 0){
+            return 0L;
+        }
+        CRC32 crc = new CRC32();
+        crc.update(bytes,0,bytes.length);
+		return crc.getValue();
 		
 	}
 

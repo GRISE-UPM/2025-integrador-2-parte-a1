@@ -1,4 +1,5 @@
 package es.upm.grise.profundizacion.file;
+import es.upm.grise.profundizacion.file.FileUtils;
 
 import Exceptions.InvalidContentException;
 import Exceptions.WrongFileTypeException;
@@ -44,11 +45,11 @@ public class File {
             return 0L;
         }else{
             byte[]bytes = new byte[content.size()];
+            FileUtils file =new FileUtils();
             for(int i=0;i<content.size();i++){
                 bytes[i] = (byte) (content.get(i) & 0x00FF);
             }
-            Long crc32 = ByteBuffer.wrap(bytes).getLong();
-            return crc32;
+            return file.calculateCRC32(bytes);
         }
     }
     
