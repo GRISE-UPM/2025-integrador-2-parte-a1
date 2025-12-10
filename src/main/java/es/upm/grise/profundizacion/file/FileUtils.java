@@ -3,7 +3,7 @@ package es.upm.grise.profundizacion.file;
 import java.util.zip.CRC32;
 
 public class FileUtils {
-	long calculateCRC32(byte[] bytes) {
+	static long calculateCRC32(byte[] bytes) {
 		if(bytes.length == 0){
             return 0L;
         }
